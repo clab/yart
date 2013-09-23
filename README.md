@@ -4,6 +4,28 @@ YART implements linear, logistic and ordinal regression with L2 regularization.
 
 LBFGS is used to minimize the loss functions.
 
+## What I had to do to install
+
+    # set up Python virtualenv
+    virtualenv mypy
+    source mypy/bin/activate
+
+    # install prereqs
+    pip install cython
+    pip install numpy
+    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+    brew install gfortran
+    pip install scipy
+
+    # download YART with git
+    git clone git@github.com:clab/yart.git
+    cd yart
+    git submodule init
+    git submodule update
+
+    # build
+    python setup.py build
+
 ## Linear regression example
 ```python
 from sklearn import datasets, cross_validation, metrics
