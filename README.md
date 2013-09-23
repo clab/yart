@@ -10,12 +10,13 @@ LBFGS is used to minimize the loss functions.
     virtualenv mypy
     source mypy/bin/activate
 
-    # install prereqs
+    # install Python library prereqs
     pip install cython
     pip install numpy
     ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
     brew install gfortran
     pip install scipy
+    pip install scikit-learn
 
     # download YART with git
     git clone git@github.com:clab/yart.git
@@ -23,8 +24,11 @@ LBFGS is used to minimize the loss functions.
     git submodule init
     git submodule update
 
-    # build
-    python setup.py build
+    # build YART
+    python setup.py install
+    # to test, you have to be in another directory
+    cd ..
+    python -c 'import yart'
 
 ## Linear regression example
 ```python
